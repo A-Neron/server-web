@@ -10,7 +10,7 @@ body {
 }
 
 header {
-    background-color: #4c81af;
+    background-color:#4CAF50;
     color: white;
     padding: 20px;
     text-align: center;
@@ -40,17 +40,17 @@ footer {
 }
 
 button {
-    background-color: #4CAF50; /* Vert */
+    background-color: #4CAF50;
     color: white;
     border: none;
-    padding: 15px 32px;
+    padding: 12px 25px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 5px;
 }
 
 button:hover {

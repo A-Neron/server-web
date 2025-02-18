@@ -1,97 +1,97 @@
 INSERT INTO `genshin_farming_002`.`personnages` 
 (`id_personnage`, `nom_personnage`, `rarete_personnage`, `type_arme_personnage`, `type_personnage`, `image_personnage`, `image_rarete`,`image_type_arme`,`image_type`)
 VALUES
-(1, 'Amber', 4, 'bow', 'pyro', NULL, NULL, NULL, 'pyro.webp'),
-(2, 'Kaeya', 4, 'sword', 'cryo', NULL, NULL, NULL, 'cryo.webp'),
-(3, 'Lisa', 4, 'catalyst', 'electro', NULL, NULL, NULL, 'electro.webp'),
-(4, 'Barbara', 4, 'catalyst', 'hydro', NULL, NULL, NULL, 'hydro.webp'),
-(5, 'Razor', 4, 'claymore', 'electro', NULL, NULL, NULL, 'electro.webp'),
-(6, 'Xiangling', 4, 'polearm', 'pyro', NULL, NULL, NULL, 'pyro.webp'),
-(7, 'Beidou', 4, 'claymore', 'electro', NULL, NULL, NULL, 'electro.webp'),
-(8, 'Xingqiu', 4, 'sword', 'hydro', NULL, NULL, NULL, 'hydro.webp'),
-(9, 'Ningguang', 4, 'catalyst', 'geo', NULL, NULL, NULL, 'geo.webp'),
-(10, 'Fischl', 4, 'bow', 'electro', NULL, NULL, NULL, 'electro.webp'),
-(11, 'Bennett', 4, 'sword', 'pyro', NULL, NULL, NULL, 'pyro.webp'),
-(12, 'Noëlle', 4, 'claymore', 'geo', NULL, NULL, NULL, 'geo.webp'),
-(13, 'Chongyun', 4, 'claymore', 'cryo', NULL, NULL, NULL, 'cryo.webp'),
-(14, 'Sucrose', 4, 'catalyst', 'anemo', NULL, NULL, NULL, 'anemo.webp'),
-(15, 'Jean', 5, 'sword', 'anemo', NULL, NULL, NULL, 'anemo.webp'),
-(16, 'Diluc', 5, 'claymore', 'pyro', NULL, NULL, NULL, 'pyro.webp'),
-(17, 'Qiqi', 5, 'sword', 'cryo', NULL, NULL, NULL, 'cryo.webp'),
-(18, 'Mona', 5, 'catalyst', 'hydro', NULL, NULL, NULL, 'hydro.webp'),
-(19, 'Keqing', 5, 'sword', 'electro', NULL, NULL, NULL, 'electro.webp'),
-(20, 'Venti', 5, 'bow', 'anemo', NULL, NULL, NULL, 'anemo.webp'),
-(21, 'Klee', 5, 'catalyst', 'pyro', NULL, NULL, NULL, 'pyro.webp'),
-(22, 'Diona', 4, 'bow', 'cryo', NULL, NULL, NULL, 'cryo.webp'),
-(23, 'Tartaglia', 5, 'bow', 'hydro', NULL, NULL, NULL, 'hydro.webp'),
-(24, 'Xinyan', 4, 'claymore', 'pyro', NULL, NULL, NULL, 'pyro.webp'),
-(25, 'Zhongli', 5, 'polearm', 'geo', NULL, NULL, NULL, 'geo.webp'),
-(26, 'Albedo', 5, 'sword', 'geo', NULL, NULL, NULL, 'geo.webp'),
-(27, 'Ganyu', 5, 'bow', 'cryo', NULL, NULL, NULL, 'cryo.webp'),
-(28, 'Xiao', 5, 'polearm', 'anemo', NULL, NULL, NULL, 'anemo.webp'),
-(29, 'Hu Tao', 5, 'polearm', 'pyro', NULL, NULL, NULL, 'pyro.webp'),
-(30, 'Rosalia', 4, 'polearm', 'cryo', NULL, NULL, NULL, 'cryo.webp'),
-(31, 'Yanfei', 4, 'catalyst', 'pyro', NULL, NULL, NULL, 'pyro.webp'),
-(32, 'Eula', 5, 'claymore', 'cryo', NULL, NULL, NULL, 'cryo.webp'),
-(33, 'Kaedehara Kazuha', 5, 'sword', 'anemo', NULL, NULL, NULL, 'anemo.webp'),
-(34, 'Kamisato Ayaka', 5, 'sword', 'cryo', NULL, NULL, NULL, 'cryo.webp'),
-(35, 'Sayu', 4, 'claymore', 'anemo', NULL, NULL, NULL, 'anemo.webp'),
-(36, 'Yoimiya', 5, 'bow', 'pyro', NULL, NULL, NULL, 'pyro.webp'),
-(37, 'Aloy', 5, 'bow', 'cryo', NULL, NULL, NULL, 'cryo.webp'),
-(38, 'Kujou Sara', 4, 'bow', 'electro', NULL, NULL, NULL, 'electro.webp'),
-(39, 'Shogun Raiden', 5, 'polearm', 'electro', NULL, NULL, NULL, 'electro.webp'),
-(40, 'Sangonomiya Kokomi', 5, 'catalyst', 'hydro', NULL, NULL, NULL, 'hydro.webp'),
-(41, 'Thoma', 4, 'polearm', 'pyro', NULL, NULL, NULL, 'pyro.webp'),
-(42, 'Gorou', 4, 'bow', 'geo', NULL, NULL, NULL, 'geo.webp'),
-(43, 'Arataki Itto', 5, 'claymore', 'geo', NULL, NULL, NULL, 'geo.webp'),
-(44, 'Yun Jin', 4, 'polearm', 'geo', NULL, NULL, NULL, 'geo.webp'),
-(45, 'Shenhe', 5, 'polearm', 'cryo', NULL, NULL, NULL, 'cryo.webp'),
-(46, 'Yae Miko', 5, 'catalyst', 'electro', NULL, NULL, NULL, 'electro.webp'),
-(47, 'Kamisato Ayato', 5, 'sword', 'hydro', NULL, NULL, NULL, 'hydro.webp'),
-(48, 'Yelan', 5, 'bow', 'hydro', NULL, NULL, NULL, 'hydro.webp'),
-(49, 'Kuki Shinobu', 4, 'sword', 'electro', NULL, NULL, NULL, 'electro.webp'),
-(50, 'Shikanoin Heizou', 4, 'catalyst', 'anemo', NULL, NULL, NULL, 'anemo.webp'),
-(51, 'Collei', 4, 'bow', 'dendro', NULL, NULL, NULL, 'dendro.webp'),
-(52, 'Tighnari', 5, 'bow', 'dendro', NULL, NULL, NULL, 'dendro.webp'),
-(53, 'Dori', 4, 'claymore', 'electro', NULL, NULL, NULL, 'electro.webp'),
-(54, 'Candace', 4, 'polearm', 'hydro', NULL, NULL, NULL, 'hydro.webp'),
-(55, 'Cyno', 5, 'polearm', 'electro', NULL, NULL, NULL, 'electro.webp'),
-(56, 'Nilou', 5, 'sword', 'hydro', NULL, NULL, NULL, 'hydro.webp'),
-(57, 'Nahida', 5, 'catalyst', 'dendro', NULL, NULL, NULL, 'dendro.webp'),
-(58, 'Layla', 4, 'sword', 'cryo', NULL, NULL, NULL, 'cryo.webp'),
-(59, 'Faruzan', 4, 'bow', 'anemo', NULL, NULL, NULL, 'anemo.webp'),
-(60, 'Nomade', 5, 'catalyst', 'anemo', NULL, NULL, NULL, 'anemo.webp'),
-(61, 'Yaoyao', 4, 'polearm', 'dendro', NULL, NULL, NULL, 'dendro.webp'),
-(62, 'Alhaitham', 5, 'sword', 'dendro', NULL, NULL, NULL, 'dendro.webp'),
-(63, 'Dehya', 5, 'claymore', 'pyro', NULL, NULL, NULL, 'pyro.webp'),
-(64, 'Mika', 4, 'polearm', 'cryo', NULL, NULL, NULL, 'cryo.webp'),
-(65, 'Kaveh', 4, 'claymore', 'dendro', NULL, NULL, NULL, 'dendro.webp'),
-(66, 'Beizhu', 5, 'catalyst', 'dendro', NULL, NULL, NULL, 'dendro.webp'),
-(67, 'Kirara', 4, 'sword', 'dendro', NULL, NULL, NULL, 'dendro.webp'),
-(68, 'Lynette', 4, 'sword', 'anemo', NULL, NULL, NULL, 'anemo.webp'),
-(69, 'Lyney', 5, 'bow', 'pyro', NULL, NULL, NULL, 'pyro.webp'),
-(70, 'Fréminet', 4, 'claymore', 'cryo', NULL, NULL, NULL, 'cryo.webp'),
-(71, 'Neuvilette', 5, 'catalyst', 'hydro', NULL, NULL, NULL, 'hydro.webp'),
-(72, 'Wriothesley', 5, 'catalyst', 'cryo', NULL, NULL, NULL, 'cryo.webp'),
-(73, 'Charlotte', 4, 'catalyst', 'cryo', NULL, NULL, NULL, 'cryo.webp'),
-(74, 'Furina', 5, 'sword', 'hydro', NULL, NULL, NULL, 'hydro.webp'),
-(75, 'Navia', 5, 'claymore', 'geo', NULL, NULL, NULL, 'geo.webp'),
-(76, 'Chevreuse', 4, 'polearm', 'pyro', NULL, NULL, NULL, 'pyro.webp'),
-(77, 'Gaming', 4, 'claymore', 'pyro', NULL, NULL, NULL, 'pyro.webp'),
-(78, 'Xianyun', 5, 'catalyst', 'anemo', NULL, NULL, NULL, 'anemo.webp'),
-(79, 'Chiori', 5, 'sword', 'geo', NULL, NULL, NULL, 'geo.webp'),
-(80, 'Arlecchino', 5, 'polearm', 'pyro', NULL, NULL, NULL, 'pyro.webp'),
-(81, 'Sethos', 4, 'bow', 'electro', NULL, NULL, NULL, 'electro.webp'),
-(82, 'Clorinde', 5, 'sword', 'electro', NULL, NULL, NULL, 'electro.webp'),
-(83, 'Sigewinne', 5, 'bow', 'hydro', NULL, NULL, NULL, 'hydro.webp'),
-(84, 'Émilie', 5, 'polearm', 'dendro', NULL, NULL, NULL, 'dendro.webp'),
-(85, 'Kachina', 4, 'polearm', 'geo', NULL, NULL, NULL, 'geo.webp'),
-(86, 'Mualani', 5, 'catalyst', 'hydro', NULL, NULL, NULL, 'hydro.webp'),
-(87, 'Kinich', 5, 'claymore', 'dendro', NULL, NULL, NULL, 'dendro.webp'),
-(88, 'Xilonen', 5, 'sword', 'geo', NULL, NULL, NULL, 'geo.webp'),
-(89, 'Ororon', 4, 'bow', 'electro', NULL, NULL, NULL, 'electro.webp'),
-(90, 'Chasca', 5, 'bow', 'anemo', NULL, NULL, NULL, 'anemo.webp'),
-(91, 'Citlali', 5, 'catalyst', 'cryo', NULL, NULL, NULL, 'cryo.webp'),
-(92, 'Mavuika', 5, 'claymore', 'pyro', NULL, NULL, NULL, 'pyro.webp'),
-(93, 'Lan Yan', 4, 'catalyst', 'anemo', NULL, NULL, NULL, 'anemo.webp'),
-(94, 'Yumemizuki Mizuki', 5, 'catalyst', 'anemo', NULL, NULL, NULL, 'anemo.webp');
+1,Amber,4,bow,pyro,amber.webp,NULL,bow.webp,pyro.webp
+2,Kaeya,4,sword,cryo,kaeya.webp,NULL,sword.webp,cryo.webp
+3,Lisa,4,catalyst,electro,lisa.webp,NULL,catalyst.webp,electro.webp
+4,Barbara,4,catalyst,hydro,barbara.webp,NULL,catalyst.webp,hydro.webp
+5,Razor,4,claymore,electro,razor.webp,NULL,claymore.webp,electro.webp
+6,Xiangling,4,polearm,pyro,xiangling.webp,NULL,polearm.webp,pyro.webp
+7,Beidou,4,claymore,electro,beidou.webp,NULL,claymore.webp,electro.webp
+8,Xingqiu,4,sword,hydro,xingqiu.webp,NULL,sword.webp,hydro.webp
+9,Ningguang,4,catalyst,geo,ningguang.webp,NULL,catalyst.webp,geo.webp
+10,Fischl,4,bow,electro,fischl.webp,NULL,bow.webp,electro.webp
+11,Bennett,4,sword,pyro,bennett.webp,NULL,sword.webp,pyro.webp
+12,Noëlle,4,claymore,geo,noelle.webp,NULL,claymore.webp,geo.webp
+13,Chongyun,4,claymore,cryo,chongyun.webp,NULL,claymore.webp,cryo.webp
+14,Sucrose,4,catalyst,anemo,sucrose.webp,NULL,catalyst.webp,anemo.webp
+15,Jean,5,sword,anemo,jean.webp,NULL,sword.webp,anemo.webp
+16,Diluc,5,claymore,pyro,diluc.webp,NULL,claymore.webp,pyro.webp
+17,Qiqi,5,sword,cryo,qiqi.webp,NULL,sword.webp,cryo.webp
+18,Mona,5,catalyst,hydro,mona.webp,NULL,catalyst.webp,hydro.webp
+19,Keqing,5,sword,electro,keqing.webp,NULL,sword.webp,electro.webp
+20,Venti,5,bow,anemo,venti.webp,NULL,bow.webp,anemo.webp
+21,Klee,5,catalyst,pyro,klee.webp,NULL,catalyst.webp,pyro.webp
+22,Diona,4,bow,cryo,diona.webp,NULL,bow.webp,cryo.webp
+23,Tartaglia,5,bow,hydro,tartaglia.webp,NULL,bow.webp,hydro.webp
+24,Xinyan,4,claymore,pyro,xinyan.webp,NULL,claymore.webp,pyro.webp
+25,Zhongli,5,polearm,geo,zhongli.webp,NULL,polearm.webp,geo.webp
+26,Albedo,5,sword,geo,albedo.webp,NULL,sword.webp,geo.webp
+27,Ganyu,5,bow,cryo,ganyu.webp,NULL,bow.webp,cryo.webp
+28,Xiao,5,polearm,anemo,xiao.webp,NULL,polearm.webp,anemo.webp
+29,Hu Tao,5,polearm,pyro,hu_tao.webp,NULL,polearm.webp,pyro.webp
+30,Rosalia,4,polearm,cryo,rosalia.webp,NULL,polearm.webp,cryo.webp
+31,Yanfei,4,catalyst,pyro,yanfei.webp,NULL,catalyst.webp,pyro.webp
+32,Eula,5,claymore,cryo,eula.webp,NULL,claymore.webp,cryo.webp
+33,"Kaedehara Kazuha",5,sword,anemo,kaedehara_kazuha.webp,NULL,sword.webp,anemo.webp
+34,"Kamisato Ayaka",5,sword,cryo,kamisato_ayaka.webp,NULL,sword.webp,cryo.webp
+35,Sayu,4,claymore,anemo,sayu.webp,NULL,claymore.webp,anemo.webp
+36,Yoimiya,5,bow,pyro,yoimiya.webp,NULL,bow.webp,pyro.webp
+37,Aloy,5,bow,cryo,aloy.webp,NULL,bow.webp,cryo.webp
+38,"Kujou Sara",4,bow,electro,kujou_sara.webp,NULL,bow.webp,electro.webp
+39,"Shogun Raiden",5,polearm,electro,shogun_raiden.webp,NULL,polearm.webp,electro.webp
+40,"Sangonomiya Kokomi",5,catalyst,hydro,sangonomiya_kokomi.webp,NULL,catalyst.webp,hydro.webp
+41,Thoma,4,polearm,pyro,thoma.webp,NULL,polearm.webp,pyro.webp
+42,Gorou,4,bow,geo,gorou.webp,NULL,bow.webp,geo.webp
+43,"Arataki Itto",5,claymore,geo,arataki_itto.webp,NULL,claymore.webp,geo.webp
+44,"Yun Jin",4,polearm,geo,yun_jin.webp,NULL,polearm.webp,geo.webp
+45,Shenhe,5,polearm,cryo,shenhe.webp,NULL,polearm.webp,cryo.webp
+46,"Yae Miko",5,catalyst,electro,yae_miko.webp,NULL,catalyst.webp,electro.webp
+47,"Kamisato Ayato",5,sword,hydro,kamisato_ayato.webp,NULL,sword.webp,hydro.webp
+48,Yelan,5,bow,hydro,yelan.webp,NULL,bow.webp,hydro.webp
+49,Kuki Shinobu,4,sword,electro,kuki_shinobu.webp,NULL,sword.webp,electro.webp
+50,Shikanoin Heizou,4,catalyst,anemo,shikanoin_heizou.webp,NULL,catalyst.webp,anemo.webp
+51,Collei,4,bow,dendro,collei.webp,NULL,bow.webp,dendro.webp
+52,Tighnari,5,bow,dendro,tighnari.webp,NULL,bow.webp,dendro.webp
+53,Dori,4,claymore,electro,dori.webp,NULL,claymore.webp,electro.webp
+54,Candace,4,polearm,hydro,candace.webp,NULL,polearm.webp,hydro.webp
+55,Cyno,5,polearm,electro,cyno.webp,NULL,polearm.webp,electro.webp
+56,Nilou,5,sword,hydro,nilou.webp,NULL,sword.webp,hydro.webp
+57,Nahida,5,catalyst,dendro,nahida.webp,NULL,catalyst.webp,dendro.webp
+58,Layla,4,sword,cryo,layla.webp,NULL,sword.webp,cryo.webp
+59,Faruzan,4,bow,anemo,faruzan.webp,NULL,bow.webp,anemo.webp
+60,Nomade,5,catalyst,anemo,nomade.webp,NULL,catalyst.webp,anemo.webp
+61,Yaoyao,4,polearm,dendro,yaoyao.webp,NULL,polearm.webp,dendro.webp
+62,Alhaitham,5,sword,dendro,alhaitham.webp,NULL,sword.webp,dendro.webp
+63,Dehya,5,claymore,pyro,dehya.webp,NULL,claymore.webp,pyro.webp
+64,Mika,4,polearm,cryo,mika.webp,NULL,polearm.webp,cryo.webp
+65,Kaveh,4,claymore,dendro,kaveh.webp,NULL,claymore.webp,dendro.webp
+66,Baizhu,5,catalyst,dendro,baizhu.webp,NULL,catalyst.webp,dendro.webp
+67,Kirara,4,sword,dendro,kirara.webp,NULL,sword.webp,dendro.webp
+68,Lynette,4,sword,anemo,lynette.webp,NULL,sword.webp,anemo.webp
+69,Lyney,5,bow,pyro,lyney.webp,NULL,bow.webp,pyro.webp
+70,Fréminet,4,claymore,cryo,freminet.webp,NULL,claymore.webp,cryo.webp
+71,Neuvillette,5,catalyst,hydro,neuvillette.webp,NULL,catalyst.webp,hydro.webp
+72,Wriothesley,5,catalyst,cryo,wriothesley.webp,NULL,catalyst.webp,cryo.webp
+73,Charlotte,4,catalyst,cryo,charlotte.webp,NULL,catalyst.webp,cryo.webp
+74,Furina,5,sword,hydro,furina.webp,NULL,sword.webp,hydro.webp
+75,Navia,5,claymore,geo,navia.webp,NULL,claymore.webp,geo.webp
+76,Chevreuse,4,polearm,pyro,chevreuse.webp,NULL,polearm.webp,pyro.webp
+77,Gaming,4,claymore,pyro,gaming.webp,NULL,claymore.webp,pyro.webp
+78,Xianyun,5,catalyst,anemo,xianyun.webp,NULL,catalyst.webp,anemo.webp
+79,Chiori,5,sword,geo,chiori.webp,NULL,sword.webp,geo.webp
+80,Arlecchino,5,polearm,pyro,arlecchino.webp,NULL,polearm.webp,pyro.webp
+81,Sethos,4,bow,electro,sethos.webp,NULL,bow.webp,electro.webp
+82,Clorinde,5,sword,electro,clorinde.webp,NULL,sword.webp,electro.webp
+83,Sigewinne,5,bow,hydro,sigewinne.webp,NULL,bow.webp,hydro.webp
+84,Emilie,5,polearm,dendro,emilie.webp,NULL,polearm.webp,dendro.webp
+85,Kachina,4,polearm,geo,kachina.webp,NULL,polearm.webp,geo.webp
+86,Mualani,5,catalyst,hydro,mualani.webp,NULL,catalyst.webp,hydro.webp
+87,Kinich,5,claymore,dendro,kinich.webp,NULL,claymore.webp,dendro.webp
+88,Xilonen,5,sword,geo,xilonen.webp,NULL,sword.webp,geo.webp
+89,Ororon,4,bow,electro,ororon.webp,NULL,bow.webp,electro.webp
+90,Chasca,5,bow,anemo,chasca.webp,NULL,bow.webp,anemo.webp
+91,Citlali,5,catalyst,cryo,citlali.webp,NULL,catalyst.webp,cryo.webp
+92,Mavuika,5,claymore,pyro,mavuika.webp,NULL,claymore.webp,pyro.webp
+93,Lan Yan,4,catalyst,anemo,lan_yan.webp,NULL,catalyst.webp,anemo.webp
+94,Yumemizuki Mizuki,5,catalyst,anemo,yumemizuki_mizuki.webp,NULL,catalyst.webp,anemo.webp
