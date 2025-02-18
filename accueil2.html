@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <link rel="stylesheet" href="accueil2.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="accueil">
+        <h1>Bienvenue sur mon portfolio</h1>
+    </section>
+
+    <section id="apropos">
+        <h2>À propos de moi</h2>
+        <p>J'étudie les réseaux informatiques de manière traditionnelle et la programmation en autodidacte.</p>
+    </section>
+
+    <section id="projets">
+        <h2>Mes projets</h2>
+        <div class="portfolio">
+            <a class="projet" href="horloge/horloge.html" target="_blank">               
+                <h3>Horloge</h3>
+                <p>Affiche l'heure en temp réel.</p>
+            </a>
+            <a class="projet" href="http://127.0.0.1:5000" target="_blank">
+                <h3>Genshin Database</h3>
+                <p>Exploitation d'une base de donnée personnel sur le jeu vidéo genshin impact</p>
+            </a>
+            <a class="projet" href="#" target="_blank">
+                <h3>Random pick</h3>
+                <p>Choix aléatoire d'un agent valorant à partir d'une bdd</p>
+                <p>COMING SOON</p>
+            </a>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contactez-moi</h2>
+        <form action="#" method="POST">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Envoyer</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Mon Portfolio</p>
+    </footer>
+</body>
+</html>
