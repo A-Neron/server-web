@@ -1,0 +1,114 @@
+CREATE TABLE `boss` (
+  `id_boss` int NOT NULL AUTO_INCREMENT,
+  `nom_boss` varchar(100) DEFAULT NULL,
+  `nom_objet_boss` varchar(100) DEFAULT NULL,
+  `image_objet_boss` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id_boss`)
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `boss_hebdo` (
+  `id_boss_hebdo` int NOT NULL AUTO_INCREMENT,
+  `nom_objet_boss_hebdo` varchar(45) DEFAULT NULL,
+  `nom_boss_hebdo` varchar(45) DEFAULT NULL,
+  `image_objet_boss_hebdo` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id_boss_hebdo`)
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `fleurs` (
+  `id_fleur` int NOT NULL AUTO_INCREMENT,
+  `nom_fleur` varchar(45) DEFAULT NULL,
+  `image_fleur` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id_fleur`)
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `livres` (
+  `id_livre` int NOT NULL AUTO_INCREMENT,
+  `nom_livre` varchar(45) DEFAULT NULL,
+  `image_livre` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id_livre`)
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `objets_monstres` (
+  `id_objet_monstre` int NOT NULL AUTO_INCREMENT,
+  `nom_objet_monstre` varchar(45) DEFAULT NULL,
+  `image_objet_monstre` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id_objet_monstre`)
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `pierres` (
+  `id_pierre` int NOT NULL AUTO_INCREMENT,
+  `nom_pierre` varchar(45) DEFAULT NULL,
+  `type_pierre` varchar(45) DEFAULT NULL,
+  `image_pierre` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id_pierre`)
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `personnages` (
+  `id_personnage` int NOT NULL AUTO_INCREMENT,
+  `nom_personnage` varchar(45) DEFAULT NULL,
+  `rarete_personnage` int DEFAULT NULL,
+  `type_arme_personnage` varchar(45) DEFAULT NULL,
+  `type_personnage` varchar(45) DEFAULT NULL,
+  `image_personnage` varchar(200) DEFAULT NULL,
+  `image_rarete` varchar(200) DEFAULT NULL,
+  `image_type_arme` varchar(200) DEFAULT NULL,
+  `image_type` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id_personnage`)
+) ENGINE=InnoDB AUTO_INCREMENT=375 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+### TABLES ASSOCIATIVES ###
+
+CREATE TABLE `personnages_boss` (
+  `id_personnage` int NOT NULL,
+  `id_boss` int NOT NULL,
+  PRIMARY KEY (`id_personnage`,`id_boss`),
+  KEY `fk_boss_idx` (`id_boss`),
+  CONSTRAINT `fk_boss` FOREIGN KEY (`id_boss`) REFERENCES `boss` (`id_boss`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_personnage_boss` FOREIGN KEY (`id_personnage`) REFERENCES `personnages` (`id_personnage`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `personnages_boss_hebdo` (
+  `id_personnage` int NOT NULL,
+  `id_boss_hebdo` int NOT NULL,
+  PRIMARY KEY (`id_personnage`,`id_boss_hebdo`),
+  KEY `fk_boss_idx` (`id_boss_hebdo`),
+  CONSTRAINT `fk_boss_hebdo` FOREIGN KEY (`id_boss_hebdo`) REFERENCES `boss_hebdo` (`id_boss_hebdo`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_personnage_boss_hebdo` FOREIGN KEY (`id_personnage`) REFERENCES `personnages` (`id_personnage`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `personnages_fleurs` (
+  `id_personnage` int NOT NULL,
+  `id_fleur` int NOT NULL,
+  PRIMARY KEY (`id_personnage`,`id_fleur`),
+  KEY `fk_fleur_idx` (`id_fleur`),
+  CONSTRAINT `fk_fleur` FOREIGN KEY (`id_fleur`) REFERENCES `fleurs` (`id_fleur`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_personnage_fleur` FOREIGN KEY (`id_personnage`) REFERENCES `personnages` (`id_personnage`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `personnages_livres` (
+  `id_personnage` int NOT NULL,
+  `id_livre` int NOT NULL,
+  PRIMARY KEY (`id_personnage`,`id_livre`),
+  KEY `fk_livre_idx` (`id_livre`),
+  CONSTRAINT `fk_livre` FOREIGN KEY (`id_livre`) REFERENCES `livres` (`id_livre`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_personnage_livre` FOREIGN KEY (`id_personnage`) REFERENCES `personnages` (`id_personnage`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `personnages_objets_monstres` (
+  `id_personnage` int NOT NULL,
+  `id_objet_monstre` int NOT NULL,
+  PRIMARY KEY (`id_personnage`,`id_objet_monstre`),
+  KEY `fk_objet_monstre_idx` (`id_objet_monstre`),
+  CONSTRAINT `fk_objet_monstre` FOREIGN KEY (`id_objet_monstre`) REFERENCES `objets_monstres` (`id_objet_monstre`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_personnage_objet_monstre` FOREIGN KEY (`id_personnage`) REFERENCES `personnages` (`id_personnage`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `personnages_pierres` (
+  `id_personnage` int NOT NULL,
+  `id_pierre` int NOT NULL,
+  PRIMARY KEY (`id_personnage`,`id_pierre`),
+  KEY `fk_pierres_idx` (`id_pierre`),
+  CONSTRAINT `fk_personnage_pierre` FOREIGN KEY (`id_personnage`) REFERENCES `personnages` (`id_personnage`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_pierre` FOREIGN KEY (`id_pierre`) REFERENCES `pierres` (`id_pierre`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci

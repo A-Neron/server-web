@@ -1,0 +1,68 @@
+1 - Personnages
+id_personnage (clé primaire)
+nom_personnage
+rareté
+type_arme
+type_personnage
+image_personnage
+image_rarete
+image_type_arme
+image_type
+
+2 - Livres
+id_livre (clé primaire)
+nom_livre
+image_livre
+
+3 - Boss
+id_boss (clé primaire)
+nom_boss
+nom_objet_boss
+image_objet_boss 
+
+4 - Boss_Hebdo
+id_boss_hebdo (clé primaire)
+nom_objet_boss_hebdo
+nom_boss_hebdo
+image_boss_hebdo
+
+5 - Pierres_Elementaires
+id_pierre (clé primaire)
+nom_pierre
+image_pierre
+
+6 - Fleurs
+id_fleur (clé primaire)
+nom_fleur
+image_fleur
+
+7 - Objets_Monstres
+id_objet_monstre (clé primaire)
+nom_objet_monstre
+image_objet_monstre
+
+                    ##### TABLES ASSOCIATIVES #####
+
+1.2 - Personnages_Livres (table associative pour lier les personnages aux livres)
+id_personnage (clé étrangère vers Personnages) -- fk_personnage_livre
+id_livre (clé étrangère vers Livres) -- fk_livre
+
+1.3 - Personnages_Boss (table associative pour lier les personnages aux boss)
+id_personnage (clé étrangère vers Personnages) -- fk_personnage_boss
+id_boss (clé étrangère vers Boss) -- fk_boss
+
+1.4 - Personnages_Boss_Hebdo (table associative pour lier les personnages aux boss hebdomadaires)
+id_personnage (clé étrangère vers Personnages) -- fk_personnage_boss_hebdo
+id_boss_hebdo (clé étrangère vers Boss_Hebdo) -- fk_boss_hebdo
+
+1.5 - Personnages_Pierres (table associative pour lier les personnages aux pierres élémentaires)
+id_personnage (clé étrangère vers Personnages) -- fk_personnage_pierre
+id_pierre (clé étrangère vers Pierres) -- fk_pierre
+
+1.6 - Personnages_Fleurs (table associative pour lier les personnages aux fleurs)
+id_personnage (clé étrangère vers Personnages) -- fk_personnage_fleur
+id_fleur (clé étrangère vers Fleurs) -- fk_fleur
+
+1.7 - Personnages_Objet_Monstres (table associative pour lier les personnages aux objets de monstres)
+id_personnage (clé étrangère vers Personnages) -- fk_personnage_objet_monstre
+id_objet_monstre (clé étrangère vers Objets_Monstres) -- fk_objet_monstre
