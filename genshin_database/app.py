@@ -5,7 +5,7 @@ app = Flask(__name__) # Créer l'application Flask
 
 # Fonction pour obtenir une connexion à la base de données
 def get_db_connection():
-    return mysql.connector.connect(host="localhost",user="root",password="toto",database="genshin_farming_002")
+    return mysql.connector.connect(host="localhost",user="root",password="toto",database="genshin_db")
 
 @app.route("/")
 def home():
@@ -68,4 +68,4 @@ def home():
 
 # Lancer l'application Flask
 if __name__ == "__main__":
-    app.run(debug=True, host="127.0.0.1", port=5000)
+    app.run(debug=True, host="0.0.0.0", port=5000)
