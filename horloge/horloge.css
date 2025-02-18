@@ -1,0 +1,17 @@
+body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#horloge {
+    font-size: 8rem;
+    font-weight: bold;
+    text-align: center;
+}

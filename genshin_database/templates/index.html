@@ -12,24 +12,7 @@
 
 </head>
 <body>
-    <h1>GENSHIN DATABASE</h1>
-
-    <div id="horloge"></div> <!--Là ou sera afficher l'heure-->
-    <script> // Le script qui permet de récupéré et affiché l'heure dans la div précédente
-        function mettreAJourHeure() { // Création d'une fonction qui met à jour l'heure
-            const maintenant = new Date(); // Récupère la date et l'heure actuelles
-            const heures = maintenant.getHours().toString().padStart(2, '0');
-            // Récupère l'heure actuelle (0-23), la convertit en texte et ajoute un '0' devant si besoin
-            const minutes = maintenant.getMinutes().toString().padStart(2, '0');
-            // Récupère les minutes actuelles (0-59), les convertit en texte et ajoute un '0' si besoin
-            const secondes = maintenant.getSeconds().toString().padStart(2, '0');
-            // Récupère les secondes actuelles (0-59), les convertit en texte et ajoute un '0' si besoin
-            document.getElementById('horloge').textContent = `${heures}:${minutes}:${secondes}`;
-            // Met à jour le texte du div ayant l'ID "horloge" avec l'heure formatée
-        }
-        setInterval(mettreAJourHeure, 1000); // Appelle la fonction toutes les 1000 millisecondes (1 seconde)
-        mettreAJourHeure(); // Exécute la fonction immédiatement au chargement pour éviter un affichage vide au début
-    </script>    
+    <h1>GENSHIN DATABASE</h1>  
 
     <form action="/" method="get">
         <input type="text" name="nom_personnage_recherche" placeholder="Rechercher un personnage" value="{{ nom_recherche }}">
@@ -58,6 +41,6 @@
 
 </body>
 <footer>
-    <p>&copy; 2025 Ange | 705469010. Tous droits réservés.</p>
+    <p>&copy; 2025 Ange | 705469010 - Tous droits réservés.</p>
 </footer>
 </html>
