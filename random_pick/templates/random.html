@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="static/css/random.css">
+    <title>Random Pick Valorant</title>
+    <script>
+        function pickAgents() {
+            let nb_agents = document.getElementById("nb_agents").value;
+            let formData = new FormData();
+            formData.append("nb_agents", nb_agents);
+            
+            fetch("/random_pick", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                let resultHTML = '';
+                data.forEach(agent => {
+                    resultHTML += `
+                        <div class="agent">
+                            ${agent.nom_agent}
+                            <br>
+                            <img src="/static/images/images_agents/${agent.image_agent}" alt="${agent.nom_agent}"/>
+                        </div>
+                    `;
+                });
+                document.getElementById("resultat").innerHTML = resultHTML;
+            })
+            .catch(error => console.error("Erreur:", error));
+        }
+    </script>
+</head>
+<body>
+    <h1>Random Pick</h1>
+    <label>Nombre d'agents</label>
+    <input type="number" id="nb_agents" min="1" max="5" value="1">
+    <button onclick="pickAgents()">Tirer au sort</button>
+    <container id="resultat">. . .</container>
+</body>
+</html>

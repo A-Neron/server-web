@@ -10,7 +10,8 @@ def get_db_connection():
 @app.route("/")
 def home():
     # Liaison avec le formulaire pour récupéré la donnée afin de modifier ou non la requête.
-    nom_personnage = request.args.get("nom_personnage_recherche", "") 
+    nom_personnage = request.args.get("nom_personnage_recherche", "")
+    tri = request.args.get("tri", "")  # Par défaut, tri pas
     
     db = get_db_connection() # Connexion à la bdd genshin_farming_002
     cursor = db.cursor(dictionary=True)  # Prépare le curseur dans la bdd
@@ -21,7 +22,9 @@ def home():
             p.image_personnage, 
             p.nom_personnage, 
             p.rarete_personnage,
+            p.type_arme_personnage,
             p.image_type_arme, 
+            p.type_personnage,
             p.image_type,
             pierres.image_pierre,
             boss.image_objet_boss,
@@ -56,6 +59,9 @@ def home():
         query += " WHERE p.nom_personnage LIKE %s" # %s sécurise la bdd d'injection SQL, tout sera considéré comme paramètres par sql
         params.append(f"%{nom_personnage}%") # LIKE permet une recherche partielle, il trouvera amber avec juste amb par exemple grace aux %' '%
 
+    if tri != "":
+        query += f" ORDER BY {tri}"
+
     cursor.execute(query, params) # Execute la requête stocker dans query et y rajoute le WHERE s'il n'est pas vide.
     items = cursor.fetchall() # Récupère le résultat de la requête et stock dans items
 
@@ -68,4 +74,4 @@ def home():
 
 # Lancer l'application Flask
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=5000)
+    app.run(debug=True,port=5000)

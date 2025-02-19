@@ -45,6 +45,20 @@ section {
 
 #apropos h2{margin-bottom: 10px;}
 
+#cv_button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#cv_button:hover {
+    background-color: #555;
+}
+
 #projets {
     background-color: #e2e2e2;
 }
