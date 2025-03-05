@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="gen_pwd.css">
+    <script src="gen_pwd.js"></script>
+    <title>Gen pwd</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Générateur de Mot de Passe</h1>
+        <label for="length">Longueur du mot de passe (min. 12):</label>
+        <input type="number" id="length" value="12" min="12" max="30" />
+
+        <button onclick="generatePassword()">Générer</button>
+
+        <div id="password">Le mot de passe apparaîtra ici...</div>
+        <button onclick="copyPassword()">Copier</button>
+    </div>
+</body>
+</html>
