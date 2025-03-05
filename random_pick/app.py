@@ -1,18 +1,3 @@
-from flask import Flask, render_template, request, jsonify
-import mysql.connector
-import random
-
-app = Flask(__name__)
-
-# Connexion à la base de données MySQL
-def get_db_connection():
-    return mysql.connector.connect(
-        host='localhost',
-        user='root',
-        password='toto', 
-        database='valo_agent'
-    )
-
 import random
 from flask import Flask, request, jsonify, render_template
 import mysql.connector
@@ -41,7 +26,7 @@ def get_agents():
 
 @app.route('/')
 def index():
-    return render_template('random.html')
+   return render_template('random.html')
 
 @app.route('/random_pick', methods=['POST'])
 def random_pick():
