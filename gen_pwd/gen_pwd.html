@@ -10,11 +10,9 @@
 <body>
     <div class="container">
         <h1>Générateur de Mot de Passe</h1>
-        <label for="length">Longueur du mot de passe (min. 12):</label>
+        <label for="length">Longueur du mot de passe (min. 12)</label> <!--le "for" permet de rediriger vers l'id associer si on clic dessus-->
         <input type="number" id="length" value="12" min="12" max="30" />
-
         <button onclick="generatePassword()">Générer</button>
-
         <div id="password">Le mot de passe apparaîtra ici...</div>
         <button onclick="copyPassword()">Copier</button>
     </div>
