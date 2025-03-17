@@ -9,7 +9,7 @@
             let formData = new FormData();
             formData.append("nb_agents", nb_agents);
             
-            fetch("/random_pick", {
+            fetch("/random_pick/pick", {
                 method: "POST",
                 body: formData
             })
@@ -21,7 +21,7 @@
                         <div class="agent">
                             ${agent.nom_agent}
                             <br>
-                            <img src="/static/images/images_agents/${agent.image_agent}" alt="${agent.nom_agent}"/>
+                            <img src="/random_pick/static/images/images_agents/${agent.image_agent}" alt="${agent.nom_agent}"/>
                         </div>
                     `;
                 });
