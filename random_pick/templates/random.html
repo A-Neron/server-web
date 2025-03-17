@@ -2,34 +2,8 @@
 <html>
 <head>
     <link rel="stylesheet" href="static/css/random.css">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <title>Random Pick Valorant</title>
-    <script>
-        function pickAgents() {
-            let nb_agents = document.getElementById("nb_agents").value;
-            let formData = new FormData();
-            formData.append("nb_agents", nb_agents);
-            
-            fetch("/random_pick/pick", {
-                method: "POST",
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                let resultHTML = '';
-                data.forEach(agent => {
-                    resultHTML += `
-                        <div class="agent">
-                            ${agent.nom_agent}
-                            <br>
-                            <img src="/random_pick/static/images/images_agents/${agent.image_agent}" alt="${agent.nom_agent}"/>
-                        </div>
-                    `;
-                });
-                document.getElementById("resultat").innerHTML = resultHTML;
-            })
-            .catch(error => console.error("Erreur:", error));
-        }
-    </script>
 </head>
 <body>
     <h1>Random Pick</h1>

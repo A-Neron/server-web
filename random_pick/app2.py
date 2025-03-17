@@ -28,7 +28,7 @@ def get_agents():
 def index():
    return render_template('random.html')
 
-@app.route('/pick', methods=['POST'])
+@app.route('/random_pick/pick', methods=['POST'])
 def random_pick():
     try:
         nb_agents = int(request.form['nb_agents'])
