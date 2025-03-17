@@ -135,3 +135,9 @@ footer {
     padding: 20px;
     text-align: center;
 }
+
+@media screen and (max-width: 768px) {
+    header {
+      display: none; /* Pour retirer mon header sur un écran trop petit */
+    }
+  }

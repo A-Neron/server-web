@@ -11,7 +11,7 @@ body {
 }
 
 #horloge {
-    font-size: 8rem;
+    font-size: clamp(60px, 10vw, 500px);
     font-weight: bold;
     text-align: center;
 }
