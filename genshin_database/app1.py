@@ -70,7 +70,7 @@ def home():
     db.close()
 
     # Retourner la page HTML avec les résultats
-    return render_template("index.html", items=items, nom_recherche=nom_personnage)
+    return render_template("index copy.html", items=items, nom_recherche=nom_personnage)
 
 # Lancer l'application Flask
 if __name__ == "__main__":

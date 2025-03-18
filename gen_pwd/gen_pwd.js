@@ -5,9 +5,11 @@ function generatePassword() {
     if (length < 12 ) {
         alert("La longueur du mot de passe doit être d'au moins 12 caractères.");
         return;
-    } 
-    else if (length > 30) {
+    } else if (length > 30) {
         alert("La longueur du mot de passe doit être inférieur à 30 caractères.");
+        return;
+    } else if (isNaN(length)){
+        alert("La valeur saisie doit être un nombre");
         return;
     }
 
