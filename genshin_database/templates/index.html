@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <title>GenshinDB</title>
-
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-    </style>
-
 </head>
 <body>
     <h1>GENSHIN DATABASE</h1>  
@@ -17,43 +12,56 @@
     <form action="/" method="get">
         <div class="recherche">
             <input type="text" name="nom_personnage_recherche" placeholder="Rechercher un personnage" value="{{ nom_recherche }}">
-            <button type="submit">Rechercher</button>
+            <br>
+            <button class="btn-recherche" type="submit">Rechercher</button>
         </div>
 
-        <table style="margin-left: auto; margin-right: auto; border-style:solid ; border-color: black;">
-            <thead>
-                <tr>
-                    <th><button class="tri" type="submit" name="tri" value="p.nom_personnage">Nom</button></th>
-                    <th><button class="tri" type="submit" name="tri" value="p.type_arme_personnage">Arme</button></th>
-                    <th><button class="tri" type="submit" name="tri" value="p.type_personnage">Element</button></th>
-                    <th><button class="tri" type="submit" name="tri" value="pierres.nom_pierre">Pierre</button></th>
-                    <th></th>
-                    <th><button class="tri" type="submit" name="tri" value="boss.nom_boss">Boss</button></th>
-                    <th></th>
-                    <th><button class="tri" type="submit" name="tri" value="bh.nom_boss_hebdo">Boss Hebdo</button></th>
-                    <th><button class="tri" type="submit" name="tri" value="fleurs.nom_fleur">Fleur</button></th>
-                    <th><button class="tri" type="submit" name="tri" value="livres.nom_livre">Livre</button></th>
-                    <th><button class="tri" type="submit" name="tri" value="om.nom_objet_monstre">Objet</button></th>
-                </tr>
-            </thead>
-            <tbody>
+        <!-- Conteneur Grid -->
+        <div class="grid-container">
+            <div class="grid-header">
+                <div><button class="tri" type="submit" name="tri" value="p.nom_personnage">Nom</button></div>
+                <div><button class="tri" type="submit" name="tri" value="p.type_arme_personnage">Arme</button></div>
+                <div><button class="tri" type="submit" name="tri" value="p.type_personnage">Element & Pierre</button></div>
+                <div><button class="tri" type="submit" name="tri" value="boss.nom_boss">Boss</button></div>
+                <div><button class="tri" type="submit" name="tri" value="bh.nom_boss_hebdo">Boss Hebdo</button></div>
+                <div><button class="tri" type="submit" name="tri" value="fleurs.nom_fleur">Fleur</button></div>
+                <div><button class="tri" type="submit" name="tri" value="livres.nom_livre">Livre</button></div>
+                <div><button class="tri" type="submit" name="tri" value="om.nom_objet_monstre">Objet</button></div>
+            </div>
+
+            <div class="grid-items">
                 {% for item in items %}
-                    <tr>
-                        <td><img id="images_personnages" src="{{ url_for('static', filename='/images/images_personnages/' + item['image_personnage']) }}"title="{{ item['nom_personnage'] }}"></td>
-                        <td><img src="{{ url_for('static', filename='/images/images_armes/' + item['image_type_arme']) }}"title="{{ item['type_arme_personnage'] }}"></td>
-                        <td><img src="{{ url_for('static', filename='/images/images_elements/' + item['image_type']) }}"title="{{ item['type_personnage'] }}"></td>
-                        <td><img src="{{ url_for('static', filename='/images/images_pierres/' + item['image_pierre']) }}"></td>
-                        <td><img src="{{ url_for('static', filename='/images/images_boss/' + item['image_objet_boss']) }}"title="{{ item['nom_objet_boss'] }}"></td>
-                        <td>{{ item['nom_boss'] }}</td> 
-                        <td><img src="{{ url_for('static', filename='/images/images_boss_hebdo/' + item['image_objet_boss_hebdo']) }}" title="{{ item['nom_objet_boss_hebdo'] }}"></td>
-                        <td>{{ item['nom_boss_hebdo'] }}</td>
-                        <td><img src="{{ url_for('static', filename='/images/images_fleurs/' + item['image_fleur']) }}"title="{{ item['nom_fleur'] }}"></td>
-                        <td><img src="{{ url_for('static', filename='/images/images_livres/' + item['image_livre']) }}" title="{{ item['nom_livre'] }}"></td>
-                        <td><img src="{{ url_for('static', filename='/images/images_objets_monstres/' + item['image_objet_monstre']) }}" title="{{ item['nom_objet_monstre'] }}"></td>
-                    </tr>
+                    <div class="grid-item image-personnage">
+                        <img src="{{ url_for('static', filename='/images/images_personnages/' + item['image_personnage']) }}" loading="lazy" title="{{ item['nom_personnage'] }}">
+                        <p>{{ item['nom_personnage'] }}</p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="{{ url_for('static', filename='/images/images_armes/' + item['image_type_arme']) }}" loading="lazy" title="{{ item['type_arme_personnage'] }}">
+                    </div>
+                    <div class="grid-item fusion-element-pierre">
+                        <img src="{{ url_for('static', filename='/images/images_elements/' + item['image_type']) }}" loading="lazy" title="{{ item['type_personnage'] }}">
+                        <img src="{{ url_for('static', filename='/images/images_pierres/' + item['image_pierre']) }}">
+                    </div>
+                    <div class="grid-item">
+                        <img class="image-boss" src="{{ url_for('static', filename='/images/images_boss/' + item['image_objet_boss']) }}" loading="lazy" title="{{ item['nom_objet_boss'] }}">
+                        <p>{{ item['nom_boss'] }}</p>
+                    </div>
+                    <div class="grid-item">
+                        <img class="image-boss-hebdo" src="{{ url_for('static', filename='/images/images_boss_hebdo/' + item['image_objet_boss_hebdo']) }}" loading="lazy" title="{{ item['nom_objet_boss_hebdo'] }}">
+                        <p>{{ item['nom_boss_hebdo'] }}</p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="{{ url_for('static', filename='/images/images_fleurs/' + item['image_fleur']) }}" loading="lazy" title="{{ item['nom_fleur'] }}">
+                    </div>
+                    <div class="grid-item">
+                        <img src="{{ url_for('static', filename='/images/images_livres/' + item['image_livre']) }}" loading="lazy" title="{{ item['nom_livre'] }}">
+                    </div>
+                    <div class="grid-item">
+                        <img src="{{ url_for('static', filename='/images/images_objets_monstres/' + item['image_objet_monstre']) }}" loading="lazy" title="{{ item['nom_objet_monstre'] }}">
+                    </div>
                 {% endfor %}
-            </tbody>
-        </table>
+            </div>
+        </div>
     </form>
 </body>
 <footer>
