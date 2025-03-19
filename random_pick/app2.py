@@ -1,5 +1,5 @@
 import random
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, url_for
 import mysql.connector
 
 app = Flask(__name__)
@@ -34,7 +34,6 @@ def random_pick():
         nb_agents = int(request.form['nb_agents'])
         agents = get_agents()
         random.shuffle(agents)# Mélange les agents pour une sélection aléatoire
-        
         selected_agents = agents[:nb_agents]# Sélectionne les N premiers agents sans doublon
         
         return jsonify(selected_agents)# Renvoie les informations des agents sélectionnés
