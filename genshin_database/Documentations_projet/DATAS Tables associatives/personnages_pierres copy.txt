@@ -50,7 +50,7 @@ VALUES
 (47, 5), (47, 6), (47, 7), (47, 8), -- Kamisato Ayato (Hydro)
 (48, 5), (48, 6), (48, 7), (48, 8), -- Yelan (Hydro)
 (49, 13), (49, 14), (49, 15), (49, 16), -- Kuki Shinobu (Electro)
-(50, 13), (50, 14), (50, 15), (50, 16); -- Shikanoin Heizou (Electro)
+(50, 17), (50, 18), (50, 19), (50, 20); -- Shikanoin Heizou (Anemo)
 (51, 9), (51, 10), (51, 11), (51, 12), -- Collei (Dendro)
 (52, 9), (52, 10), (52, 11), (52, 12), -- Tighnari (Dendro)
 (53, 13), (53, 14), (53, 15), (53, 16), -- Dori (Electro)
