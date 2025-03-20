@@ -24,7 +24,7 @@ def get_agents():
     conn.close()
     return agents
 
-@app.route('/')
+@app.route('/random_pick')
 def index():
    return render_template('random.html')
 
@@ -35,7 +35,10 @@ def random_pick():
         agents = get_agents()
         random.shuffle(agents)# Mélange les agents pour une sélection aléatoire
         selected_agents = agents[:nb_agents]# Sélectionne les N premiers agents sans doublon
-        
+
+        for agent in selected_agents:
+            agent['image_agent'] = url_for('static', filename=f'images/images_agents/{agent["image_agent"]}')
+            
         return jsonify(selected_agents)# Renvoie les informations des agents sélectionnés
     except Exception as e:
         return jsonify({'error': str(e)})

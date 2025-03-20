@@ -10,7 +10,7 @@ function pickAgents() {
     let formData = new FormData();
     formData.append("nb_agents", nb_agents);
     
-    fetch("/random_pick/pick", {
+    fetch(API_URL, {
         method: "POST",
         body: formData
     })
@@ -22,7 +22,8 @@ function pickAgents() {
                 <div class="agent">
                     ${agent.nom_agent}
                     <picture>
-                        <img src="/random_pick/static/images/images_agents/${agent.image_agent}" alt="${agent.nom_agent}"/>
+                        <source media="(max-width: 768px)" srcset="${agent.image_agent.replace('.webp', '_icon.webp')}">
+                        <img src="${agent.image_agent}" alt="${agent.nom_agent}"/>
                     </picture>
                 </div>
             `;

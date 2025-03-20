@@ -3,7 +3,8 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="{{ url_for('static', filename='js/random.js') }}"></script>
-    <link rel="stylesheet" href="static/css/random.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/random.css') }}">
+    <script> const API_URL = "{{ url_for('random_pick', _external=True) }}"; </script>
     <title>Random Pick Valorant</title>
 </head>
 <body>
