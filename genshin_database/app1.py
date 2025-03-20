@@ -7,7 +7,7 @@ app = Flask(__name__) # Créer l'application Flask
 def get_db_connection():
     return mysql.connector.connect(host="localhost",user="root",password="toto",database="genshin_db")
 
-@app.route("/genshin_database")
+@app.route("/")
 def home():
     # Liaison avec le formulaire pour récupéré la donnée afin de modifier ou non la requête.
     nom_personnage = request.args.get("nom_personnage_recherche", "")
