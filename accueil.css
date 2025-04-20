@@ -59,18 +59,20 @@ section {
     background-color: #555;
 }
 
-#projets {
+#projets{
     background-color: #e2e2e2;
 }
 
 #projets h2{margin-bottom: 30px;}
 
-.portfolio {
+.projets {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
 }
+
+.personnels{margin-bottom: 50px;}   
 
 .projet {
     background-color: #fff;
