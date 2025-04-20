@@ -59,22 +59,21 @@ section {
     background-color: #555;
 }
 
-#projets{
-    background-color: #e2e2e2;
-}
-
+#projets{background-color: #e2e2e2;}
 #projets h2{margin-bottom: 30px;}
 
-.projets {
+#certifications{background-color: #333;}
+#certifications h2{margin-bottom: 30px;color: #fff;}
+
+.projets, .certifications {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
 }
-
 .personnels{margin-bottom: 50px;}   
 
-.projet {
+.projet , .certification {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -86,16 +85,16 @@ section {
     cursor: pointer;
 }
 
-.projet:hover {
+.projet:hover, .certification:hover {
     transform: scale(1.03);
 }
 
-.projet h3 {
+.projet h3, .certification h3 {
     margin-top: 10px;
     color: black;
 }
 
-.projet p {color: #666;}
+.projet p,.certification p {color: #666;}
 
 form {
     max-width: 600px;
