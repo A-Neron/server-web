@@ -1,0 +1,91 @@
+// Initialisation carte Leaflet
+const map = L.map('map').setView([20, 0], 2);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+
+// Fonction format date simple (ex: 2025-07-03 15:30)
+function formatDate(dateStr) {
+  const d = new Date(dateStr);
+  return d.toLocaleString();
+}
+
+// Charge les news depuis le backend
+async function loadNews() {
+  try {
+    const res = await fetch('/api/news');
+    if (!res.ok) throw new Error('Erreur réseau');
+
+    const newsData = await res.json();
+
+    // Pour chaque pays on place un marker avec popup des news
+    for (const countryCode in newsData) {
+      const newsList = newsData[countryCode];
+
+      if (!newsList.length) continue;
+
+      // Exemple : on peut placer les markers avec coordonnées pré-calculées (ou un lookup)
+      // Ici on va faire simple avec quelques pays (tu pourras ajouter une vraie base de coords)
+      const coordsByCountry = {
+        "France": [46.6, 2.4],
+        "Russia": [61.5, 105.3],
+        "China": [35.9, 104.2],
+        "Ukraine": [48.4, 31.2],
+        "United States": [38.9, -100.0],
+        "Germany": [51.2, 10.4],
+        "United Kingdom": [55.4, -3.4],
+        "Japan": [36.2, 138.2],
+        "India": [20.6, 78.9],
+        "Brazil": [-14.2, -51.9],
+        "Canada": [56.1, -106.3],
+        "Australia": [-25.3, 133.8],
+        "South Africa": [-30.6, 22.9],
+        "Italy": [42.8, 12.6],
+        "Spain": [40.4, -3.7],
+        "Netherlands": [52.3, 5.7],
+        "Sweden": [60.1, 18.6],
+        "Poland": [52.1, 19.0],
+        "South Korea": [36.5, 127.8],
+        "Turkey": [39.0, 35.0],
+        "Mexico": [23.6, -102.5], 
+        "Argentina": [-38.4, -63.6],
+        "Egypt": [26.8, 30.8],
+        "Saudi Arabia": [24.0, 45.0],
+        "Iran": [32.0, 53.0], 
+        "Palestine": [31.9, 35.2],
+        "Israel": [31.5, 34.8],
+        "Greece": [39.1, 22.4],
+        "Portugal": [39.4, -8.2],
+        "Turkey": [39.0, 35.0],
+        "Arabia Saoudite": [24.0, 45.0],
+        "United arab emirates": [24.0, 54.0],
+        "Groenland": [72.0, -40.0],
+      };
+
+      const coords = coordsByCountry[countryCode];
+      if (!coords) continue; // skip si pas dans la liste
+
+      // Création contenu popup avec titres + liens
+      let popupContent = '';
+      newsList.forEach(news => {
+        popupContent += `
+          <div class="news-item">
+            <div class="news-title">${news.title}</div>
+            <div class="news-date">${formatDate(news.date)}</div>
+            <a class="news-link" href="${news.link}" target="_blank" rel="noopener noreferrer">Lire l'article</a>
+            <hr/>
+          </div>
+        `;
+      });
+
+      L.marker(coords)
+        .addTo(map)
+        .bindPopup(popupContent);
+    }
+  } catch (err) {
+    console.error('Erreur chargement news:', err);
+  }
+}
+
+loadNews();

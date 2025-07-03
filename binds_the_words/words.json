@@ -1,0 +1,12 @@
+[
+  { "ru": "Привет", "fr": "Bonjour" },
+  { "ru": "Спасибо", "fr": "Merci" },
+  { "ru": "Пока", "fr": "Au revoir" },
+  { "ru": "Да", "fr": "Oui" },
+  { "ru": "Нет", "fr": "Non" },
+  { "ru": "Пожалуйста", "fr": "S'il vous plaît" },
+  { "ru": "Извините", "fr": "Excusez-moi" },
+  { "ru": "Как дела?", "fr": "Comment ça va ?" },
+  { "ru": "Хорошо", "fr": "Bien" },
+  { "ru": "Плохо", "fr": "Mal" }
+]
