@@ -1,17 +1,22 @@
 // Initialisation carte Leaflet
-const map = L.map('map').setView([20, 0], 2);
+const map = L.map('map', {
+  worldCopyJump: false,  // Ne saute pas automatiquement d’un monde à l’autre
+  maxBounds: [[-85, -180], [85, 180]],  // Limite la carte aux bornes du globe
+  maxBoundsViscosity: 1.0, // Empêche le glissement au-delà des limites
+  minZoom: 2, // Empêche le zoom arrière abusif
+  maxZoom: 8  // Pour éviter un zoom trop profond
+}).setView([20, 0], 2);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
-// Fonction format date simple (ex: 2025-07-03 15:30)
 function formatDate(dateStr) {
   const d = new Date(dateStr);
   return d.toLocaleString();
 }
 
-// Charge les news depuis le backend
+// Charge les news depuis le backend json généré par le script Python
 async function loadNews() {
   try {
     const res = await fetch('/api/news');
@@ -22,11 +27,8 @@ async function loadNews() {
     // Pour chaque pays on place un marker avec popup des news
     for (const countryCode in newsData) {
       const newsList = newsData[countryCode];
-
       if (!newsList.length) continue;
 
-      // Exemple : on peut placer les markers avec coordonnées pré-calculées (ou un lookup)
-      // Ici on va faire simple avec quelques pays (tu pourras ajouter une vraie base de coords)
       const coordsByCountry = {
         "France": [46.6, 2.4],
         "Russia": [61.5, 105.3],
@@ -59,7 +61,6 @@ async function loadNews() {
         "Portugal": [39.4, -8.2],
         "Turkey": [39.0, 35.0],
         "Arabia Saoudite": [24.0, 45.0],
-        "United arab emirates": [24.0, 54.0],
         "Groenland": [72.0, -40.0],
         "Australia": [-25.3, 133.8],
       };

@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 # Liste des flux RSS par pays
 rss_feeds = {
-    "France": ["https://www.france24.com/fr/rss"],
+    "France": ["https://www.france24.com/fr/rss","https://www.lefigaro.fr/rss/figaro_actualites.xml"],
     "United States": ["http://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml"],
     "Ukraine": ["https://www.unian.info/rss"],
     "Russia": ["https://tass.com/rss/v2.xml"],
