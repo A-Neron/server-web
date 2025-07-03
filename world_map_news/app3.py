@@ -14,7 +14,11 @@ rss_feeds = {
     "India": ["https://timesofindia.indiatimes.com/rssfeeds/296589292.cms"],
     "Israel": ["https://www.timesofisrael.com/feed/","https://israelnow.news/feed/"],
     "Iran": ["https://www.tehrantimes.com/rss"],
-    "Groenland": ["https://www.rfi.fr/en/tag/greenland/rss"]
+    "Groenland": ["https://www.rfi.fr/en/tag/greenland/rss"],
+    "Australia": ["https://www.abc.net.au/news/feed/51120/rss.xml","https://www.sbs.com.au/news/feed"],
+    "South Korea": ["http://world.kbs.co.kr/rss/rss_news.htm?lang=e"],
+    "Brazil": ["https://riotimesonline.com/feed/"],
+    "Japan": ["https://www.japantimes.co.jp/feed/"],
     # Ajoute d'autres pays et leurs flux RSS ici
 }
 

@@ -61,6 +61,7 @@ async function loadNews() {
         "Arabia Saoudite": [24.0, 45.0],
         "United arab emirates": [24.0, 54.0],
         "Groenland": [72.0, -40.0],
+        "Australia": [-25.3, 133.8],
       };
 
       const coords = coordsByCountry[countryCode];
