@@ -1,12 +1,15 @@
-from flask import Flask, render_template, jsonify
-from collections import defaultdict
-import asyncio
-import aiohttp
-import feedparser
+### DEPENDENCIES ###
 
-app = Flask(__name__)
+from flask import Flask, render_template, jsonify # framework web léger, render_template pour afficher des templates HTML, jsonify pour renvoyer des données JSON
+from collections import defaultdict # dictionnaire avec une valeur par défaut automatique si la clé n'existe pas
+import asyncio # permet d'écrire du code asynchrone, utile pour gérer plusieurs tâches en parallèle
+import aiohttp # client HTTP asynchrone, pour faire des requêtes web sans bloquer l'exécution
+import feedparser # lire et parser facilement des flux RSS/Atom
 
-rss_feeds = {
+app = Flask(__name__) # Création de l'application Flask
+
+# Dictionnaire contenant les flux RSS pour chaque pays
+rss_feeds = { 
     "France": ["https://www.france24.com/fr/rss",
                "https://www.lefigaro.fr/rss/figaro_actualites.xml"],
     "Germany": ["https://www.spiegel.de/international/index.rss",
@@ -31,48 +34,53 @@ rss_feeds = {
               "http://newsrss.bbc.co.uk/rss/newsonline_world_edition/middle_east/rss.xml"],
 }
 
-async def fetch_feed(session, url):
+# Une fonction asynchrone (async def) est une fonction non bloquante permettant d'exécuter plusieurs tâches en parallèle sans attendre la fin de chaque tâche avant de commencer la suivante.
+async def fetch_feed(session, url): # Fonction asynchrone pour récupérer un flux RSS
     try:
-        headers = {
+        headers = { # header customisé pour éviter les blocages par certains serveurs, montrer que je suis un navigateur et non un bot
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                 "AppleWebKit/537.36 (KHTML, like Gecko) "
                 "Chrome/114.0.0.0 Safari/537.36"
-}
-        async with session.get(url, headers=headers, timeout=10) as response:
-            content = await response.read()
-            return url, feedparser.parse(content)
+            }
+        async with session.get(url, headers=headers, timeout=10) as response: # faire une requête GET asynchrone
+            content = await response.read() # lire le contenu de la réponse
+            return url, feedparser.parse(content) # retourner l'URL et le contenu parsé du flux RSS
     except Exception as e:
         print(f"Erreur sur {url}: {e}")
         return url, None
 
-async def fetch_all_feeds():
-    async with aiohttp.ClientSession() as session:
-        tasks = [fetch_feed(session, url) for feeds in rss_feeds.values() for url in feeds]
-        return await asyncio.gather(*tasks)
+async def fetch_all_feeds(): # Fonction asynchrone pour récupérer tous les flux RSS
+    async with aiohttp.ClientSession() as session: # créer une session HTTP asynchrone
+        tasks = [fetch_feed(session, url) for feeds in rss_feeds.values() for url in feeds] # créer une liste de tâches pour chaque flux RSS
+        return await asyncio.gather(*tasks) # exécuter toutes les tâches en parallèle et attendre leurs résultats
 
+# Retourne la page HTML principale quand un utilisateur se connecte
 @app.route('/')
 def index():
     return render_template('index.html')
 
+# Liens ou le js récupère les données RSS envoyer par le serveur flask
 @app.route('/api/news')
 def get_news():
+    # Crée une boucle d'événements asynchrone pour récupérer les flux RSS
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
     results = loop.run_until_complete(fetch_all_feeds())
 
-    news_by_country = defaultdict(list)
-    news_id = 1
-    failed_urls = []
+    news_by_country = defaultdict(list) # Dictionnaire pour stocker les nouvelles par pays
+    news_id = 1 # Identifiant unique pour chaque nouvelle
+    failed_urls = [] # Liste pour stocker les URLs des flux RSS qui ont échoué ou sont vides
 
+    # Parcourt les résultats des flux RSS récupérés et les envoie dans 'failed_urls' si le flux est vide ou n'existe pas
     for url, feed in results:
         if feed is None or not feed.entries:
             failed_urls.append(url)
             continue
 
-        country = next((c for c, urls in rss_feeds.items() if url in urls), "Unknown")
+        country = next((c for c, urls in rss_feeds.items() if url in urls), "Unknown") # Trouve le pays correspondant à l'URL du flux RSS
 
-        for entry in feed.entries[:3]:
-            news_item = {
+        for entry in feed.entries[:3]: # Limite à 3 nouvelles par flux RSS
+            news_item = { # dictionnaire contenant les informations de la nouvelle
                 "id": news_id,
                 "title": entry.title,
                 "date": entry.get("published", ""),
