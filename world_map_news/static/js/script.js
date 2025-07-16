@@ -7,9 +7,7 @@ const map = L.map('map', {
   maxZoom: 15  // Pour éviter un zoom trop profond
 }).setView([20, 0], 2);
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '&copy; OpenStreetMap contributors'
-}).addTo(map);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
 // Fonction pour formater la date
 function formatDate(dateStr) {
