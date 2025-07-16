@@ -16,6 +16,7 @@ function formatDate(dateStr) {
 }
 // Coordonnées aproximatives des pays pour les markers
 const coordsByCountry = {
+  "World": [30, -40],
   "France": [46.6, 2.4],
   "Russia": [61.5, 90],
   "China": [35.9, 104.2],
@@ -33,6 +34,14 @@ const coordsByCountry = {
   "Australia": [-25.3, 133.8],
   "Egypt": [26.8, 30.8],
   "South Africa": [-30.6, 22.9],
+  "Argentina": [-38.4, -63.6],
+  "Norway": [60.0, 8.0],
+  "Canada": [56.1, -106.3],
+  "Spain": [40.4, -3.7],
+  "Italy": [41.9, 12.6],
+  "Colombia": [4.6, -74.1],
+  "Nigeria": [9.1, 8.7],
+  "Algeria": [28.0, 2.9],
 };
 
 // Charge les news depuis le backend json généré par le script Python
@@ -54,31 +63,37 @@ async function loadNews() {
       const coords = coordsByCountry[countryCode];
       if (!coords) continue; // skip si pas dans la liste
 
-      // Générer l'HTML swiper pour ce pays
       let popupContent = `
+        <div class="popup-header"><strong>${countryCode}</strong></div>
         <div class="swiper mySwiper${countryCode.replace(/\s/g,'')}">
-        <div class="swiper-wrapper">`;
-
-      newsList.forEach(news => {
-        popupContent += `
-          <div class="swiper-slide">
-            <div class="news-item">
-              <div class="news-title">${news.title}</div>
-              <div class="news-date">${formatDate(news.date)}</div>
-              <a class="news-link" href="${news.link}" target="_blank" rel="noopener noreferrer">Lire l'article</a>
-            </div>
-          </div>
-        `;
-      });
-
-      popupContent += `
+          <div class="swiper-wrapper">
+            ${newsList.map(news => `
+              <div class="swiper-slide">
+                <div class="news-item">
+                  <div class="news-title">${news.title}</div>
+                  <div class="news-date">${formatDate(news.date)}</div>
+                  <a class="news-link" href="${news.link}" target="_blank" rel="noopener noreferrer">Lire l'article</a>
+                </div>
+              </div>
+            `).join('')}
           </div>
           <div class="swiper-pagination"></div>
         </div>
       `;
 
-      const marker = L.marker(coords);
-      marker.bindPopup(popupContent);
+      // Permet de créer des marker circulaire et custom en fonction du pays
+      const marker = L.circleMarker(coords, {
+        color: countryCode === "World" ? '#000000ff' : '#000000ff', // couleur bordures
+        fillColor: countryCode === "World" ? '#984ea3': '#2b8cbe', // rouge pour World, noir pour les autres
+        fillOpacity: 0.5, // opacité du remplissage
+        radius: 7,// rayon du cercle
+        weight: 0.8, // épaisseur de la bordure
+        dashArray: countryCode === "World" ? '3' : null,
+        opacity: 0.9,
+      });
+
+      // attache le contenu HTML au marker
+      marker.bindPopup(popupContent); 
 
       // Pour initialiser swiper quand popup est ouvert
       marker.on('popupopen', () => {
