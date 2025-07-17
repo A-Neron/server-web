@@ -10,35 +10,58 @@ app = Flask(__name__) # Création de l'application Flask
 
 # Dictionnaire contenant les flux RSS pour chaque pays
 rss_feeds = { 
-    "World": ["https://www.aljazeera.com/xml/rss/all.xml",
-            "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
-            "https://www.reuters.com/tools/rss",
-            "https://www.bbc.co.uk/news/world/rss.xml",
-            "https://www.bbc.com/afrique/rss.xml"],
-    "France": ["https://www.france24.com/fr/rss",
-               "https://www.lefigaro.fr/rss/figaro_actualites.xml"],
-    "Germany": ["https://www.spiegel.de/international/index.rss",
-                "http://newsrss.bbc.co.uk/rss/newsonline_world_edition/europe/rss.xml"],
-    "United Kingdom": ["http://newsrss.bbc.co.uk/rss/newsonline_uk_edition/uk_politics/rss.xml",
-                       "http://newsrss.bbc.co.uk/rss/newsonline_uk_edition/business/rss.xml",
-                       "http://newsrss.bbc.co.uk/rss/newsonline_uk_edition/technology/rss.xml"],
+    "World": [
+        "https://www.aljazeera.com/xml/rss/all.xml",
+        "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+        "https://www.reuters.com/tools/rss",
+        "https://www.bbc.co.uk/news/world/rss.xml",
+        "https://www.bbc.com/afrique/rss.xml",
+        "https://www.france24.com/fr/rss",
+        "https://www.courrierinternational.com/rss",
+        "http://newsrss.bbc.co.uk/rss/newsonline_world_edition/middle_east/rss.xml",
+        ],
+    "Europe": [
+        "https://www.euronews.com/rss?level=theme&name=world",
+        "https://www.euronews.com/rss?level=theme&name=europe",
+        "https://www.euronews.com/rss?level=theme&name=business",
+        "https://www.euronews.com/rss?level=theme&name=science",
+        "https://www.france24.com/fr/europe/rss",
+        ],
+    "France": [
+        "https://www.lemonde.fr/rss/une.xml",
+        "https://www.lefigaro.fr/rss/figaro_actualites.xml"
+        ],
+    "Germany": [
+        "https://www.spiegel.de/international/index.rss",
+        "http://newsrss.bbc.co.uk/rss/newsonline_world_edition/europe/rss.xml",
+        ],
+    "United Kingdom": [
+        "http://newsrss.bbc.co.uk/rss/newsonline_uk_edition/uk_politics/rss.xml",
+        "http://newsrss.bbc.co.uk/rss/newsonline_uk_edition/business/rss.xml",
+        "http://newsrss.bbc.co.uk/rss/newsonline_uk_edition/technology/rss.xml"
+        ],
     "United States": ["http://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml"],
     "Ukraine": ["https://www.france24.com/fr/tag/ukraine/rss"],
-    "Russia": ["https://tass.com/rss/v2.xml",
-               "https://tass.ru/rss/v2.xml",
-               "https://www.vedomosti.ru/rss/news"],
+    "Russia": [
+        "https://tass.com/rss/v2.xml",
+        "https://tass.ru/rss/v2.xml",
+        "https://www.vedomosti.ru/rss/news"
+        ],
     "China": ["https://www.scmp.com/rss/91/feed"],
     "India": ["https://timesofindia.indiatimes.com/rssfeeds/296589292.cms"],
     "Iran": ["https://www.tehrantimes.com/rss"],
-    "Australia": ["https://www.abc.net.au/news/feed/51120/rss.xml",
-                  "https://www.sbs.com.au/news/feed"],
+    "Australia": [
+        "https://www.abc.net.au/news/feed/51120/rss.xml",
+        "https://www.sbs.com.au/news/feed"
+        ],
     "South Korea": ["http://world.kbs.co.kr/rss/rss_news.htm?lang=e"],
     "South Africa": ["https://www.timeslive.co.za/rss/"],
-    "Brazil": ["https://g1.globo.com/rss/g1/",
-               "http://newsrss.bbc.co.uk/rss/newsonline_world_edition/americas/rss.xml"],
+    "Brazil": [
+        "https://g1.globo.com/rss/g1/",
+        "http://newsrss.bbc.co.uk/rss/newsonline_world_edition/americas/rss.xml"
+        ],
     "Japan": ["https://www.japantimes.co.jp/feed/"],
-    "Egypt": ["https://dailynewsegypt.com/feed/",
-              "http://newsrss.bbc.co.uk/rss/newsonline_world_edition/middle_east/rss.xml"],
+    "Egypt": ["https://dailynewsegypt.com/feed/",],
     "Argentina": ["https://www.clarin.com/rss/"],
     "Norway": ["https://www.aftenposten.no/rss/"],
     "Canada": ["https://www.cbc.ca/cmlink/rss-topstories"],
@@ -46,7 +69,7 @@ rss_feeds = {
     "Italy": ["https://www.repubblica.it/rss/homepage/rss2.0.xml"],
     "Colombia": ["https://www.eltiempo.com/rss/colombia.xml"],
     "Nigeria": ["https://guardian.ng/feed/"],
-    "Algeria": ["https://www.tsa-algerie.com/feed/"]
+    "Algeria": ["https://www.tsa-algerie.com/feed/"],
 }
 
 # Une fonction asynchrone (async def) est une fonction non bloquante permettant d'exécuter plusieurs tâches en parallèle sans attendre la fin de chaque tâche avant de commencer la suivante.

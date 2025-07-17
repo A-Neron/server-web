@@ -17,6 +17,7 @@ function formatDate(dateStr) {
 // Coordonnées aproximatives des pays pour les markers
 const coordsByCountry = {
   "World": [30, -40],
+  "Europe": [49, 8],
   "France": [46.6, 2.4],
   "Russia": [61.5, 90],
   "China": [35.9, 104.2],
@@ -63,33 +64,34 @@ async function loadNews() {
       const coords = coordsByCountry[countryCode];
       if (!coords) continue; // skip si pas dans la liste
 
+      // Création du contenu HTML pour le popup
       let popupContent = `
-        <div class="popup-header"><strong>${countryCode}</strong></div>
-        <div class="swiper mySwiper${countryCode.replace(/\s/g,'')}">
-          <div class="swiper-wrapper">
-            ${newsList.map(news => `
-              <div class="swiper-slide">
-                <div class="news-item">
-                  <div class="news-title">${news.title}</div>
-                  <div class="news-date">${formatDate(news.date)}</div>
-                  <a class="news-link" href="${news.link}" target="_blank" rel="noopener noreferrer">Lire l'article</a>
+        <div class="popup-wrapper">
+          <div class="popup-header"><strong>${countryCode}</strong></div>
+          <div class="swiper mySwiper${countryCode.replace(/\s/g, '')}">
+            <div class="swiper-wrapper">
+              ${newsList.map(news => `
+                <div class="swiper-slide">
+                  <div class="news-item">
+                    <div class="news-title">${news.title}</div>
+                    <div class="news-date">${formatDate(news.date)}</div>
+                    <a class="news-link" href="${news.link}" target="_blank" rel="noopener noreferrer">Lire l'article</a>
+                  </div>
                 </div>
-              </div>
-            `).join('')}
+              `).join('')}
+            </div>
+            <div class="swiper-pagination"></div>
           </div>
-          <div class="swiper-pagination"></div>
         </div>
       `;
 
       // Permet de créer des marker circulaire et custom en fonction du pays
       const marker = L.circleMarker(coords, {
-        color: countryCode === "World" ? '#000000ff' : '#000000ff', // couleur bordures
-        fillColor: countryCode === "World" ? '#984ea3': '#2b8cbe', // rouge pour World, noir pour les autres
+        color: '#000000ff', // couleur bordures
+        fillColor: countryCode === "World" ? '#890a9dff': countryCode === "Europe" ? '#ff0000ff' : '#090ba1ff', // Remplissage custom
         fillOpacity: 0.5, // opacité du remplissage
         radius: 7,// rayon du cercle
         weight: 0.8, // épaisseur de la bordure
-        dashArray: countryCode === "World" ? '3' : null,
-        opacity: 0.9,
       });
 
       // attache le contenu HTML au marker
