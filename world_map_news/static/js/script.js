@@ -48,7 +48,7 @@ const coordsByCountry = {
 // Charge les news depuis le backend json généré par le script Python
 async function loadNews() {
   try {
-    const res = await fetch('/api/news');
+    const res = await fetch('api/news');
     if (!res.ok) throw new Error('Erreur réseau');
 
     const newsData = await res.json();
