@@ -40,7 +40,9 @@ rss_feeds = {
         "http://newsrss.bbc.co.uk/rss/newsonline_uk_edition/business/rss.xml",
         "http://newsrss.bbc.co.uk/rss/newsonline_uk_edition/technology/rss.xml"
         ],
-    "United States": ["http://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml"],
+    "United States": ["http://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml",
+                    "https://rss.nytimes.com/services/xml/rss/nyt/Americas.xml",
+                ],
     "Ukraine": ["https://www.france24.com/fr/tag/ukraine/rss"],
     "Russia": [
         "https://tass.com/rss/v2.xml",
