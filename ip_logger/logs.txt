@@ -1,0 +1,5 @@
+Date : 2025-07-19 22:21:49
+erreur : API error : reserved range
+Langue : fr-FR
+User-Agent : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+----------------------------------------
